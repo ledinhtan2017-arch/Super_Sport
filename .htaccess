@@ -1,0 +1,26 @@
+# ============================================================
+# SPORTZONE — Root .htaccess
+# Bảo vệ toàn bộ source code khỏi truy cập trực tiếp
+# Document root nên trỏ vào /public/, không phải thư mục này
+# ============================================================
+
+# Chặn truy cập trực tiếp từ web nếu vhost không cấu hình đúng
+Options -Indexes -ExecCGI
+
+# Bảo vệ file nhạy cảm
+<FilesMatch "\.(env|log|json|lock|sql|md|gitignore)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Bảo vệ thư mục app, config, storage, database
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Không cho truy cập trực tiếp vào app/, config/, storage/, database/, routes/
+    RewriteRule ^(app|config|storage|database|routes|tests|vendor)/ - [F,L]
+
+    # Chuyển tất cả về public/index.php nếu root vhost chưa được cấu hình
+    RewriteCond %{REQUEST_URI} !^/public/
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
