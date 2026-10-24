@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # SPORTZONE — Sports E-Commerce
 
 Nền tảng thương mại điện tử bán đồ thể thao. Stack: **PHP 8.1+**, **MySQL 8**, **Vanilla JS**, **PDO**.
@@ -237,3 +238,6 @@ tail -f storage/logs/app-2025-10-14.log
 | ⬜ Phase 4 | Checkout, Order, Payment |
 | ⬜ Phase 5 | Admin panel đầy đủ |
 | ⬜ Phase 6 | Kiểm thử, tối ưu, deploy |
+=======
+# Super_Sport
+>>>>>>> 52d666a4e5f421c188e5a147735daaa647442164
